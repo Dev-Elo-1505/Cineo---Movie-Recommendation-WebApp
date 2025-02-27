@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { inter } from "@/app/ui/fonts";
+import { plusJakartaSans } from "@/app/ui/fonts";
 import "./globals.css";
 
 
@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} antialiased`}
+        className={`${plusJakartaSans.className} antialiased`}
       >
         {children}
       </body>
