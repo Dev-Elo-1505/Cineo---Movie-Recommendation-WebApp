@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ThemeProvider } from "next-themes";
 
 import { plusJakartaSans } from "@/app/ui/fonts";
 import "./globals.css";
@@ -20,7 +21,7 @@ export default function RootLayout({
       <body
         className={`${plusJakartaSans.className} antialiased`}
       >
-        {children}
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   );

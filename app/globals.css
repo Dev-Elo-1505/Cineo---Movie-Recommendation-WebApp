@@ -1,2 +1,11 @@
 @import "tailwindcss";
 
+
+
+body {
+  @apply bg-[#fdf8f5] text-[#1e1e1e];
+}
+
+.dark body {
+  @apply bg-[#121212] text-[#ededed];
+}
