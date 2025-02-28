@@ -17,7 +17,7 @@ const getMovie = async () => {
 
 export default function Home() {
   return (
-    <div className="container mx-auto bg-[#121212] min-h-screen text-[#f5f5f5]">
+    <div className="container mx-auto min-h-screen">
       <NavBar />
       
     </div>

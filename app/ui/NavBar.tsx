@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { IoSearchOutline } from "react-icons/io5";
 import { spaceGrotesk } from "./fonts";
-import { DiVim } from "react-icons/di";
 import ThemeSwitch from "./ThemeSwitch";
 
 const NavBar = () => {
@@ -18,7 +17,7 @@ const NavBar = () => {
         <div className="flex items-center space-x-3">
           <IoSearchOutline className="text-2xl" onClick={handleSearch} />
           <ThemeSwitch />
-          <button className="bg-[#ff6c37] py-2 px-5 rounded">Filter</button>
+          <button className="bg-[#ff6c37] py-2 px-5 rounded text-[#ededed]">Filter</button>
         </div>
       </div>
       {searchBar && (
@@ -32,10 +31,10 @@ const NavBar = () => {
         </div>
       )}
 
-      {/* dexktop view */}
+      {/* desktop view */}
       <div className="hidden lg:flex justify-between items-center">
         <h2 className={`${spaceGrotesk.className} text-2xl`}>Cineo</h2>
-        <div className="flex items-center justify-between w-1/2 bg-[#1e1e1e] rounded p-3">
+        <div className="flex items-center justify-between w-1/2 bg-[#f8f6f5] text-[#1E1E1E] placeholder-[#A5A5A5] dark:bg-[#1e1e1e] rounded p-3">
           <input
             type="text"
             placeholder="Find something great"
@@ -45,7 +44,7 @@ const NavBar = () => {
         </div>
         <div className="flex items-center space-x-3">
           <ThemeSwitch />
-          <button className="bg-[#ff6c37] px-8 py-2 rounded">Filter</button>
+          <button className="bg-[#ff6c37] px-8 py-2 rounded text-[#ededed]">Filter</button>
         </div>
       </div>
     </nav>

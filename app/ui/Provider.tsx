@@ -1,23 +1,15 @@
-'use client'
-
+"use client";
 
 import { ThemeProvider } from "next-themes";
-import { useEffect, useState } from "react";
 
 interface ChildrenProps {
   children: React.ReactNode;
 }
 
 const Provider = ({ children }: ChildrenProps) => {
-  const [mounted, setMounted] = useState(false)
-
-  useEffect(()=> setMounted(true), [])
-
-  if(!mounted) return null
-  
   return (
-    <ThemeProvider attribute="class">
-      {children}
+    <ThemeProvider attribute="class" defaultTheme="system">
+      <div className="bg-[#fdf8f5] text-[#1e1e1e] dark:bg-[#121212] dark:text-[#ededed] select-none transition-colors duration-300">{children}</div>
     </ThemeProvider>
   );
 };

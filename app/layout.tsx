@@ -21,7 +21,7 @@ export default function RootLayout({
       <body
         className={`${plusJakartaSans.className} antialiased`}
       >
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider attribute="class">{children}</ThemeProvider>
       </body>
     </html>
   );
