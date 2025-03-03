@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { IoSearchOutline } from "react-icons/io5";
 import { spaceGrotesk } from "./fonts";
 import ThemeSwitch from "./ThemeSwitch";
+import Link from "next/link";
 
 const NavBar = () => {
   const [searchBar, setSearchBar] = useState(false);
@@ -13,7 +14,7 @@ const NavBar = () => {
     // mobile view
     <nav className="p-5 lg:px-20 lg:py-5">
       <div className="flex justify-between items-center lg:hidden">
-        <h2 className={`${spaceGrotesk.className} text-2xl`}>Cineo</h2>
+        <Link href={"/"} className={`${spaceGrotesk.className} text-2xl`}>Cineo</Link>
         <div className="flex items-center space-x-3">
           <IoSearchOutline className="text-2xl" onClick={handleSearch} />
           <ThemeSwitch />
@@ -21,7 +22,7 @@ const NavBar = () => {
         </div>
       </div>
       {searchBar && (
-        <div className="mt-2 flex items-center space-x-2 w-full bg-[#1e1e1e] rounded p-3 lg:hidden">
+        <div className="mt-2 flex items-center space-x-2 w-full rounded p-3 lg:hidden">
           <IoSearchOutline className="text-2xl" />
           <input
             type="text"
@@ -33,8 +34,8 @@ const NavBar = () => {
 
       {/* desktop view */}
       <div className="hidden lg:flex justify-between items-center">
-        <h2 className={`${spaceGrotesk.className} text-2xl`}>Cineo</h2>
-        <div className="flex items-center justify-between w-1/2 bg-[#f8f6f5] text-[#1E1E1E] placeholder-[#A5A5A5] dark:bg-[#1e1e1e] rounded p-3">
+        <Link href={"/"} className={`${spaceGrotesk.className} text-2xl`}>Cineo</Link>
+        <div className="flex items-center justify-between w-1/2  rounded p-3 bg-[#1e1e1e] text-[#ededed]">
           <input
             type="text"
             placeholder="Find something great"

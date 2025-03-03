@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
-import { ThemeProvider } from "next-themes";
-
-import { plusJakartaSans } from "@/app/ui/fonts";
+import Provider from "@/app/components/Provider";
+import { plusJakartaSans } from "@/app/components/fonts";
 import "./globals.css";
-
-
+import { ThemeProvider } from "next-themes";
 
 export const metadata: Metadata = {
   title: "Cineo",
@@ -17,10 +15,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${plusJakartaSans.className} antialiased`}
-      >
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${plusJakartaSans.className} antialiased`}>
         <ThemeProvider attribute="class">{children}</ThemeProvider>
       </body>
     </html>
