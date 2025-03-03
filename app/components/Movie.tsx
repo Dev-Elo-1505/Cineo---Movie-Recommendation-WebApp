@@ -1,5 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { animate } from "motion";
+import { motion } from "motion/react";
 
 interface Movie {
   poster_path: string;
@@ -28,7 +30,7 @@ const Movie = () => {
   return (
     <div>
       <h2 className="text-2xl font-semibold mb-5">What's Popular</h2>
-      <div className="flex gap-5 flex-wrap mx-auto">
+      <motion.div className="flex gap-5 flex-wrap mx-auto">
         {movie.map((movie) => (
           <div key={movie.id}>
             <div>
@@ -41,7 +43,7 @@ const Movie = () => {
             <p>{movie.release_date}</p>
           </div>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 };
