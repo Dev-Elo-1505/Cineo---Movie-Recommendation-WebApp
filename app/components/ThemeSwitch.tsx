@@ -10,11 +10,11 @@ const ThemeSwitch = () => {
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
 
-  if (!mounted) return null;
+
 
   return (
     <div>
-      {currentTheme === "dark" ? (
+      {mounted && (currentTheme === "dark" ? (
         <MdLightMode
           onClick={() => setTheme("light")}
           className="text-2xl cursor-pointer hover:text-[#ff6c37]"
@@ -24,7 +24,7 @@ const ThemeSwitch = () => {
           onClick={() => setTheme("dark")}
           className="text-2xl cursor-pointer hover:text-[#ff6c37]"
         />
-      )}
+      ))}
     </div>
   );
 };

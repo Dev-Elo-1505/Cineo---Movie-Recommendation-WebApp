@@ -10,15 +10,19 @@ interface Movie {
   id: number;
 }
 
-const api_Url = "https://api.themoviedb.org/3/movie/popular";
+interface Prop {
+  param: string;
+}
+
+const api_Url = "https://api.themoviedb.org/3/movie/";
 const api_Key = process.env.NEXT_PUBLIC_API_KEY;
 
-const Movie = () => {
+const MovieList = ({param}: Prop) => {
   const [movie, setMovie] = useState<Movie[]>([]);
 
   useEffect(() => {
     axios
-      .get(`${api_Url}?api_key=${api_Key}`)
+      .get(`${api_Url}${param}?api_key=${api_Key}`)
       .then((res) => {
         console.log(res.data);
         setMovie(res.data.results);
@@ -29,8 +33,7 @@ const Movie = () => {
   }, []);
   return (
     <div>
-      <h2 className="text-2xl font-semibold mb-5">What's Popular</h2>
-      <motion.div className="flex gap-5 flex-wrap mx-auto">
+      <motion.div className="flex gap-5 mx-auto">
         {movie.map((movie) => (
           <div key={movie.id}>
             <div>
@@ -48,4 +51,4 @@ const Movie = () => {
   );
 };
 
-export default Movie;
+export default MovieList;

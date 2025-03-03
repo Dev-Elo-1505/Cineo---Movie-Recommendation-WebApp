@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${plusJakartaSans.className} antialiased`}>
-        <ThemeProvider attribute="class">{children}</ThemeProvider>
+        <Provider>{children}</Provider>
       </body>
     </html>
   );
