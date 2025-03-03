@@ -12,7 +12,7 @@ const NavBar = () => {
   };
   return (
     // mobile view
-    <nav className="p-5 lg:px-20 lg:py-5">
+    <nav className="mb-10">
       <div className="flex justify-between items-center lg:hidden">
         <Link href={"/"} className={`${spaceGrotesk.className} text-2xl`}>Cineo</Link>
         <div className="flex items-center space-x-3">
