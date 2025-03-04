@@ -35,7 +35,7 @@ const MovieList = ({param}: Prop) => {
   }, [param]);
   return (
     <div className="w-full overflow-hidden">
-       <div ref={scrollRef} className="relative w-full overflow-x-auto whitespace-nowrap scroll-smooth scrollbar-hide">
+       <div ref={scrollRef} className="relative w-full overflow-x-auto whitespace-nowrap scroll-smooth no-scrollbar">
       <motion.div style={{ x }} className="flex gap-5 mx-auto w-max p-4">
         {movie.map((movie) => (
           <div key={movie.id} className="w-48">
