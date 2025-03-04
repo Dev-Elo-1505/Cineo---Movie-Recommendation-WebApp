@@ -46,7 +46,7 @@ const MovieList = ({param}: Prop) => {
                 className="w-full rounded-lg shadow-lg object-cover"
               />
             </div>
-            <h3 className="text-sm mt-2 font-semibold">{movie.title}</h3>
+            <h3 className="text-sm mt-2 font-semibold text-wrap">{movie.title}</h3>
             <p className="text-xs text-gray-500">{movie.release_date}</p>
           </div>
         ))}
