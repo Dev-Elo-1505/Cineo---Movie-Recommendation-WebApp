@@ -1,10 +1,11 @@
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion } from "motion/react";
 import Link from "next/link";
 
-interface Movie {
+export interface Movie {
   poster_path: string;
+  backdrop_path: string;
   title: string;
   release_date: string;
   id: number;
@@ -81,7 +82,6 @@ const MovieList = ({ param }: Prop) => {
       </motion.div>
         </div>
 
-     
     </div>
   );
 };
