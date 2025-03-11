@@ -31,14 +31,24 @@ const MovieDetailsPage = ({ params }: { params: { id: string } }) => {
   if (!movie) return <p>Loading...</p>;
 
   return (
-    <section>
-      <div>
-        <img
-          src={`https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`}
-          alt={movie.title}
-        />
-      </div>
-    </section>
+    <section
+    className="relative h-[90vh] bg-cover bg-center"
+    style={{
+      backgroundImage: movie?.backdrop_path
+        ? `url(https://image.tmdb.org/t/p/w1280${movie.backdrop_path})`
+        : "none",
+    }}
+  >
+    {/* Blurred Background Layer */}
+    <div className="absolute inset-0 backdrop-blur-sm"></div>
+  
+    {/* Content */}
+    <div className="relative z-10 flex items-center justify-center h-full text-white">
+      <h1 className="text-4xl font-bold">{movie.title}</h1>
+    </div>
+  </section>
+  
+
   );
 };
 
