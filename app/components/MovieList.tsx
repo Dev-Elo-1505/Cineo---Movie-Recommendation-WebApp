@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
+import Link from "next/link";
 
 interface Movie {
   poster_path: string;
@@ -64,13 +65,13 @@ const MovieList = ({ param }: Prop) => {
       >
         {movie.map((movie) => (
           <div key={movie.id} className="w-48 shrink-0">
-            <div className="w-full rounded-lg shadow-lg">
+            <Link href={`/movie/${movie.id}`} className="w-full rounded-lg shadow-lg">
               <img
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                 alt={movie.title}
                 className="w-full rounded-lg shadow-lg object-cover"
               />
-            </div>
+            </Link>
             <h3 className="text-sm mt-2 font-semibold text-wrap">
               {movie.title}
             </h3>
