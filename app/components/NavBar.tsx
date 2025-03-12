@@ -20,7 +20,7 @@ const NavBar = () => {
         <div className="flex items-center space-x-3">
           <IoSearchOutline className="text-2xl" onClick={handleSearch} />
           <ThemeSwitch />
-          <button className="bg-[#ff6c37] py-2 px-5 rounded text-[#ededed]">Filter</button>
+          <Link href={`/filter`} className="bg-[#ff6c37] py-2 px-5 rounded text-[#ededed] hover:opacity-90 transition-opacity duration-300">Filter</Link>
         </div>
       </div>
       {searchBar && (
@@ -47,7 +47,7 @@ const NavBar = () => {
         </div>
         <div className="flex items-center space-x-3">
           <ThemeSwitch />
-          <button className="bg-[#ff6c37] px-8 py-2 rounded text-[#ededed]">Filter</button>
+          <Link href={`/filter`} className="bg-[#ff6c37] px-8 py-2 rounded text-[#ededed] hover:opacity-90 transition-opacity duration-300">Filter</Link>
         </div>
       </div>
     </nav>
