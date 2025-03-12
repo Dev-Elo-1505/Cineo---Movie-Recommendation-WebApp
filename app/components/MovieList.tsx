@@ -10,7 +10,6 @@ export interface Movie {
   title: string;
   release_date: string;
   id: number;
- 
   overview: string;
 }
 
