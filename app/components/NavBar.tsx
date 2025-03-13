@@ -1,20 +1,14 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { IoSearchOutline } from "react-icons/io5";
 import { spaceGrotesk } from "./fonts";
 import ThemeSwitch from "./ThemeSwitch";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import SearchBar from "./searchBar";
 
 const NavBar = () => {
-  const router = useRouter();
   const [searchBar, setSearchBar] = useState(false);
-  const [search, setSearch] = useState("")
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    router.push(`/search/${search}`);
-  };
 
   const handleSearch = () => {
     setSearchBar(!searchBar);
@@ -37,35 +31,14 @@ const NavBar = () => {
           </Link>
         </div>
       </div>
-      {searchBar && (
-        <form className="mt-2 flex items-center space-x-2 w-full rounded p-3 lg:hidden" onSubmit={handleSubmit}>
-          <button className="disabled:text-gray-500" disabled={search === ""}><IoSearchOutline className="text-2xl cursor-pointer" /></button>
-          <input
-            type="text"
-            placeholder="Find something great"
-            className="w-full focus-none outline-none"
-            onChange={(e) => setSearch(e.target.value)}
-          />
-        </form>
-      )}
+      {searchBar && <SearchBar isMobile={true} />}
 
       {/* desktop view */}
       <div className="hidden lg:flex justify-between items-center">
         <Link href={"/"} className={`${spaceGrotesk.className} text-2xl`}>
           Cineo
         </Link>
-        <form
-          className="flex items-center justify-between w-1/2  rounded p-3 bg-[#1e1e1e] text-[#ededed]"
-          onSubmit={handleSubmit}
-        >
-          <input
-            type="text"
-            placeholder="Find something great"
-            className="w-full focus-none outline-none"
-            onChange={(e) => setSearch(e.target.value)}
-          />
-          <button className="disabled:text-gray-500" disabled={search === ""}><IoSearchOutline className="text-2xl cursor-pointer" /></button>
-        </form>
+        <SearchBar />
         <div className="flex items-center space-x-3">
           <ThemeSwitch />
           <Link
