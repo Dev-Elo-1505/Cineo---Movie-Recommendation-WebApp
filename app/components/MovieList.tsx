@@ -69,8 +69,10 @@ const MovieList = ({ param }: Prop) => {
         {movie.map((movie) => (
           <div key={movie.id} className="w-48 shrink-0">
             <Link href={`/movie/${movie.id}`} className="w-full rounded-lg shadow-lg">
-              <Image
+              <img
+              
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+               
                 alt={movie.title}
                 className="w-full rounded-lg shadow-lg object-cover"
               />
