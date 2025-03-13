@@ -1,9 +1,11 @@
-
+import spinner from "../public/spinner.svg";
 
 const loading = () => {
   return (
-    <div>loading...</div>
-  )
-}
+    <div className="flex justify-center items-center h-screen">
+      <img src={spinner} />
+    </div>
+  );
+};
 
-export default loading
+export default loading;

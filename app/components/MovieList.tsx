@@ -1,8 +1,10 @@
+"use client"
+
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
 import Link from "next/link";
-import Image from "next/image";
+
 
 export interface Movie {
   poster_path: string;

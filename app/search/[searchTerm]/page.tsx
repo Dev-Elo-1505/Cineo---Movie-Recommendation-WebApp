@@ -25,7 +25,8 @@ const SearchPage = ({ params }: { params: { searchTerm: string } }) => {
   return (
     <div>
       {movie &&
-        movie(<h1 className="text-center pt-6">No results found</h1>)}
+        movie.length ===
+          0(<h1 className="text-center pt-6">No results found</h1>)}
       {movie && <MovieList />}
     </div>
   );

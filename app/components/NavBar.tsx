@@ -11,7 +11,7 @@ const NavBar = () => {
   const router = useRouter();
   const [searchBar, setSearchBar] = useState(false);
   const [search, setSearch] = useState("")
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     router.push(`/search/${search}`);
   };

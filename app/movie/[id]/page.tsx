@@ -4,7 +4,7 @@ import { notFound, useParams } from "next/navigation";
 import { Movie } from "@/app/components/MovieList";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Image from "next/image";
+
 
 const api_Url = "https://api.themoviedb.org/3/movie/";
 const api_Key = process.env.NEXT_PUBLIC_API_KEY;
@@ -46,7 +46,7 @@ const MovieDetailsPage = ({ params }: { params: { id: string } }) => {
 
         <div className="relative z-10 flex justify-between h-full text-white gap-10">
           <div className="w-1/4 rounded-lg">
-            <Image
+            <img
               src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
               alt={movie.title}
               className="w-full rounded-lg object-cover"
