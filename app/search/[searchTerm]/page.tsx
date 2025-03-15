@@ -8,14 +8,14 @@ const api_Key = process.env.NEXT_PUBLIC_API_KEY;
 
 const SearchPage = ({ params }: { params: { searchTerm: string } }) => {
   const searchTerm = params.searchTerm;
-  const [movie, setMovie] = useState<Movie | null>(null);
+  const [movies, setMovies] = useState<Movie[]>([]);
   useEffect(() => {
     axios
       .get(
         `${api_Url}?api_key=${api_Key}&query=${searchTerm}&language=en-US&include_adult=false`
       )
       .then((res) => {
-        setMovie(res.data);
+        setMovies(res.data.results);
       })
       .catch((err) => {
         console.log(err);
@@ -24,10 +24,10 @@ const SearchPage = ({ params }: { params: { searchTerm: string } }) => {
 
   return (
     <div>
-      {movie &&
-        movie.length ===
-          0(<h1 className="text-center pt-6">No results found</h1>)}
-      {movie && <MovieList />}
+      {movies.length === 0 && (
+        <h1 className="text-center pt-6">No results found</h1>
+      )}
+       <MovieList movies={movies} />
     </div>
   );
 };

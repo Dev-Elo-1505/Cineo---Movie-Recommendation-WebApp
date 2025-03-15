@@ -2,7 +2,6 @@
 
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
-import { motion } from "motion/react";
 import Link from "next/link";
 
 
@@ -15,29 +14,36 @@ export interface Movie {
   overview: string;
 }
 
-interface Prop {
-  param: string;
+interface MovieListProps {
+  movies?: Movie[];
+  category?: string;
 }
 
 const api_Url = "https://api.themoviedb.org/3/movie/";
 const api_Key = process.env.NEXT_PUBLIC_API_KEY;
 
-const MovieList = ({ param }: Prop) => {
-  const [movie, setMovie] = useState<Movie[]>([]);
+const MovieList = ({ movies, category }: MovieListProps) => {
+  const [fetchedMovies, setFetchedMovies] = useState<Movie[]>([]);
   const scrollRef = useRef<HTMLDivElement>(null);
   const [scrollStart, setScrollStart] = useState(true);
   const [scrollEnd, setScrollEnd] = useState(false);
 
   useEffect(() => {
-    axios
-      .get(`${api_Url}${param}?api_key=${api_Key}`)
-      .then((res) => {
-        setMovie(res.data.results);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, [param]);
+    const fetchMovies = async () => {
+      try {
+        if (category) {
+          const response = await axios.get(
+            `${api_Url}${category}?api_key=${api_Key}`
+          );
+          setFetchedMovies(response.data.results);
+        }
+      } catch (error) {
+        console.error("Error fetching movies:", error);
+      }
+    };
+
+    fetchMovies();
+  }, [category]);
 
    // Check Scroll Position
    const checkScroll = () => {
@@ -49,6 +55,7 @@ const MovieList = ({ param }: Prop) => {
       );
     }
   };
+  const displayedMovies = movies?.length ? movies : fetchedMovies;
 
   return (
     <div className="relative w-full">
@@ -63,12 +70,11 @@ const MovieList = ({ param }: Prop) => {
       <div ref={scrollRef}
         onScroll={checkScroll}
         className="overflow-x-auto whitespace-nowrap scroll-smooth no-scrollbar">
-           <motion.div
-        drag="x"
-        dragConstraints={{ left: -((movie.length - 1) * 200), right: 0 }}
+           <div
+        
         className="flex gap-5 w-max p-4"
       >
-        {movie.map((movie) => (
+        {displayedMovies.map((movie) => (
           <div key={movie.id} className="w-48 shrink-0">
             <Link href={`/movie/${movie.id}`} className="w-full rounded-lg shadow-lg">
               <img
@@ -85,7 +91,7 @@ const MovieList = ({ param }: Prop) => {
             <p className="text-xs text-gray-500">{movie.release_date}</p>
           </div>
         ))}
-      </motion.div>
+      </div>
         </div>
 
     </div>
