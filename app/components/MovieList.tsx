@@ -79,7 +79,7 @@ const MovieList = ({ movies, category }: MovieListProps) => {
             <Link href={`/movie/${movie.id}`} className="w-full rounded-lg shadow-lg">
               <img
               
-                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                src={`https://image.tmdb.org/t/p/w500${movie.poster_path || movie.backdrop_path}`}
                
                 alt={movie.title}
                 className="w-full rounded-lg shadow-lg object-cover"
