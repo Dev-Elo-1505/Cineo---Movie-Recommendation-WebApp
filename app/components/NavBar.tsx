@@ -7,6 +7,7 @@ import Link from "next/link";
 import SearchBar from "./searchBar";
 
 
+
 const NavBar = () => {
   const [searchBar, setSearchBar] = useState(false);
 

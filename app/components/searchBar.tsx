@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 import { IoSearchOutline } from "react-icons/io5";
 import debounce from "lodash.debounce";
 
-const searchBar = ({ isMobile }: { isMobile?: boolean }) => {
+const SearchBar = ({ isMobile }: { isMobile?: boolean }) => {
   const [search, setSearch] = useState("");
   const router = useRouter();
 
@@ -41,4 +41,4 @@ const searchBar = ({ isMobile }: { isMobile?: boolean }) => {
   );
 };
 
-export default searchBar;
+export default SearchBar;
