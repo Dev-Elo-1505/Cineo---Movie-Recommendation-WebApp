@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
 
+
 export interface Movie {
   poster_path: string;
   backdrop_path: string;
@@ -12,6 +13,7 @@ export interface Movie {
   release_date: string;
   id: number;
   overview: string;
+  vote_average: number;
 }
 
 interface MovieListProps {
@@ -79,7 +81,7 @@ const MovieList = ({ movies, category }: MovieListProps) => {
             <Link href={`/movie/${movie.id}`} className="w-full rounded-lg shadow-lg">
               <img
               
-                src={`https://image.tmdb.org/t/p/w500${movie.poster_path || movie.backdrop_path}`}
+                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                
                 alt={movie.title}
                 className="w-full rounded-lg shadow-lg object-cover"
@@ -89,7 +91,7 @@ const MovieList = ({ movies, category }: MovieListProps) => {
               {movie.title}
             </h3>
             <p className="text-xs text-gray-500">{movie.release_date}</p>
-          </div>
+          </div> 
         ))}
       </div>
         </div>

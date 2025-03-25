@@ -32,19 +32,11 @@ const MovieDetailsPage = ({ params }: { params: { id: string } }) => {
   if (!movie) return <p>Loading...</p>;
 
   return (
-    <section>
-      <div
-        className="relative h-screen bg-cover bg-center p-5 lg:px-20 lg:py-5"
-        style={{
-          backgroundImage: movie?.backdrop_path
-            ? `url(https://image.tmdb.org/t/p/w1280${movie.backdrop_path})`
-            : "none",
-        }}
-      >
-        {/* Blurred Background Layer */}
-        <div className="absolute inset-0 backdrop-blur-sm"></div>
+    <section className="flex gap-10 mt-10">
+      
+        
 
-        <div className="relative z-10 flex justify-between h-full text-white gap-10">
+        
           <div className="w-1/4 rounded-lg">
             <img
               src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
@@ -54,15 +46,14 @@ const MovieDetailsPage = ({ params }: { params: { id: string } }) => {
           </div>
           <div className="w-3/4">
             <h2 className="font-extrabold text-5xl">{movie.title}</h2>
-            <ol className="flex gap-2 list-disc list-inside mt-5 font-bold">
-                <li>{movie.release_date}</li>
-                <li>Drama</li>
-                <li>2h 52mins</li>
+            <ol className="flex gap-5 mt-5 font-bold">
+                <li>Release Date: {movie.release_date}</li>
+                <li>Rating: {movie.vote_average}</li>
             </ol>
             <div className="mt-10 font-semibold"><p>{movie.overview}</p></div>
           </div>
-        </div>
-      </div>
+       
+      
       <div></div>
     </section>
   );

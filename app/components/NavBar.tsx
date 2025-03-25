@@ -6,6 +6,7 @@ import { spaceGrotesk } from "./fonts";
 import Link from "next/link";
 import SearchBar from "./searchBar";
 
+
 const NavBar = () => {
   const [searchBar, setSearchBar] = useState(false);
 
@@ -21,7 +22,7 @@ const NavBar = () => {
         </Link>
         <div className="flex items-center space-x-3">
           <IoSearchOutline className="text-2xl" onClick={handleSearch} />
-          
+         
           <Link
             href={`/filter`}
             className="bg-[#ff6c37] py-2 px-5 rounded text-[#ededed] hover:opacity-90 transition-opacity duration-300"
@@ -39,7 +40,7 @@ const NavBar = () => {
         </Link>
         <SearchBar />
         <div className="flex items-center space-x-3">
-         
+        
           <Link
             href={`/filter`}
             className="bg-[#ff6c37] px-8 py-2 rounded text-[#ededed] hover:opacity-90 transition-opacity duration-300"
