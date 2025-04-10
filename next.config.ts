@@ -8,7 +8,8 @@ const nextConfig: NextConfig = {
               hostname: "image.tmdb.org",
               pathname: "**"
           }
-      ]
+      ],
+      domains: ['image.tmdb.org'],
   }
 };
 

@@ -51,7 +51,7 @@ const FilterFormPage = () => {
       });
   }, []);
   const date = new Date();
-  let year = date.getFullYear();
+  const year = date.getFullYear();
   const sortedLanguages = [...languages]
     .filter((lang) => lang.english_name !== "English")
     .sort((a, b) => a.english_name.localeCompare(b.english_name));

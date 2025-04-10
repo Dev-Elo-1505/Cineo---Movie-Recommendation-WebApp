@@ -3,8 +3,7 @@
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-
-
+import Image from "next/image";
 
 export interface Movie {
   poster_path: string;
@@ -79,12 +78,13 @@ const MovieList = ({ movies, category }: MovieListProps) => {
         {displayedMovies.map((movie) => (
           <div key={movie.id} className="w-48 shrink-0">
             <Link href={`/movie/${movie.id}`} className="w-full rounded-lg shadow-lg">
-              <img
-              
+              <Image
+              height={500}
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                
                 alt={movie.title}
                 className="w-full rounded-lg shadow-lg object-cover"
+                width={500}
               />
             </Link>
             <h3 className="text-sm mt-2 font-semibold text-wrap">
